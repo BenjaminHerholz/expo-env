@@ -1,5 +1,5 @@
-# expo-env
-.env solution for React Native apps Built with EXPO
+# expo-env-extended
+extended .env solution for React Native apps Built with EXPO
 
 > Expo does not give us much in terms of managing multiple environment based configuration. Atleast other than `production` and `development`. To overcome that, this is simply a workaround until a proper support is released by good folks at [Expo.io](https://expo.io).
 
