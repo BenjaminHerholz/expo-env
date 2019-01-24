@@ -67,8 +67,15 @@ function buildConfig(env) {
 
   if (fs.existsSync(fpath)) {
     config = JSON.parse(fs.readFileSync(path.join(process.cwd(), options.configFile), 'utf8')) || {};
-    config.expo = config.expo || {};
-    config.expo.extra = envFile;
+      config.expo = config.expo || {};
+      config.expo.scheme = config.expo.scheme || {};
+
+      Object.keys(config.expo).forEach(function(key) {
+          if (envFile[key] !== undefined) {
+              config.expo[key] = envFile[key];
+          }
+      });
+
     fs.writeFileSync(path.join(process.cwd(), options.outputFile), JSON.stringify(config, null, 2), 'utf8');
   }
 }
